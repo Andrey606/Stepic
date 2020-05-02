@@ -17,35 +17,32 @@ private:
     int hp_;
 };
 
-struct Elf:  Unit {
+struct Elf: virtual Unit {
     Elf(int id, int hp): Unit (id, hp){}
 
     void elfMethod() { cout << "elfMethod!" << endl; }
 };
 
-struct Archer: Unit {
+struct Archer: virtual Unit {
     Archer(int id, int hp): Unit (id, hp){}
 
     void archerMethod() { cout << "archerMethod!" << endl; }
 };
 
 struct ElfArcher: Elf, Archer {
-    ElfArcher(int id, int hp): Elf (id+1, hp+1), Archer (id+1, hp+1){}
-
-    int id() const { return Elf::id(); }
-    int hp() const { return  Elf::hp(); }
+    ElfArcher(int id, int hp): Unit (id, hp), Elf(id, hp), Archer(id, hp){}
 };
 
 Unit const * ElfBaseToArcherBase( Unit const * unit );
 
 int main(int argc, const char * argv[]) {
-    ElfArcher ElfArcherUnit(1, 10);
+    ElfArcher ElfArcherUnit(1, 100);
 
     cout << ElfArcherUnit.id() << endl;
+    cout << ElfArcherUnit.hp() << endl;
 
-    ElfArcherUnit.elfMethod();
     ElfArcherUnit.archerMethod();
-
+    ElfArcherUnit.elfMethod();
 
     return 0;
 }
