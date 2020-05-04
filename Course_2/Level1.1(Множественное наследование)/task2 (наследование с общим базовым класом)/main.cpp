@@ -17,13 +17,13 @@ private:
     int hp_;
 };
 
-struct Elf: virtual Unit {
+struct Elf: public virtual Unit {
     Elf(int id, int hp): Unit (id, hp){}
 
     void elfMethod() { cout << "elfMethod!" << endl; }
 };
 
-struct Archer: virtual Unit {
+struct Archer: public virtual Unit {
     Archer(int id, int hp): Unit (id, hp){}
 
     void archerMethod() { cout << "archerMethod!" << endl; }
