@@ -65,13 +65,7 @@ int main(int argc, const char * argv[])
     cout << typeid(p3).name() << endl;
 
     int const * const * p4 = const_cast<int const * const *>(&pa);
-    int const * const * p4 = &pa; // ошибка
-
-
-
-
-
-
+    //int const * const * p4 = &pa; // ошибка
 
     return 0;
 }
