@@ -57,15 +57,18 @@ int main(int argc, const char * argv[])
     cout << typeid(p11).name() << endl;
 
     int * const * p2 = const_cast<int * const *>(&pa);
-    //int * const * p22 = pa; // ошибка
+    int * const * p22 = &pa;
     cout << typeid(p2).name() << endl;
+    cout << typeid(p22).name() << endl;
 
     int const ** p3 = const_cast<int const **>(&pa);
     //int const ** p33 = pa; // ошибка
     cout << typeid(p3).name() << endl;
 
     int const * const * p4 = const_cast<int const * const *>(&pa);
-    //int const * const * p4 = &pa; // ошибка
+    int const * const * p44 = &pa;
+    cout << typeid(p4).name() << endl;
+    cout << typeid(p44).name() << endl;
 
     return 0;
 }
