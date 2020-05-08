@@ -1,5 +1,5 @@
 /*
-* rein_cast
+* reinterpret_cast
 */
 #include <iostream>
 
