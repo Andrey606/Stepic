@@ -1,4 +1,5 @@
 /*
+RTTI - run-time type information
 * reinterpret_cast
 */
 #include <iostream>
